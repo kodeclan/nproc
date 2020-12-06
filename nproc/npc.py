@@ -8,6 +8,7 @@ from scipy.stats import binom
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
 from joblib import Parallel, delayed
 import math
 #import multiprocessing
@@ -154,8 +155,9 @@ class npc:
             clf_logistic.fit(x_train, y_train)
             fit_model = clf_logistic
             test_score = clf_logistic.predict_proba(x_test)[:,1]
+        # TODO: Add support for Gaussian and Multinomial
         elif method == 'nb':
-            clf_nb = GaussianNB()
+            clf_nb = MultinomialNB()
             clf_nb.fit(x_train, y_train)
             fit_model = clf_nb
             test_score = clf_nb.predict_proba(x_test)[:,1]
