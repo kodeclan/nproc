@@ -9,6 +9,7 @@ from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from joblib import Parallel, delayed
+import math
 #import multiprocessing
 
 
@@ -204,7 +205,7 @@ class npc:
         
         if alpha != None:
             if alpha_u_min > alpha + 1e-10:
-                cutoff = inf
+                cutoff = math.inf
                 loc = len(indices0)
                 n_small = True
                 print ('Sample size is too small for the given alpha. Try a larger alpha.')
